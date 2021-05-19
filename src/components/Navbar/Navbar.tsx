@@ -19,11 +19,11 @@ type NavbarProps = {
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.secondary.main,
     },
     toolbar: {
       justifyContent: "space-between",
-	  color: theme.palette.secondary.main
+	  color: theme.palette.primary.main
     },
   })
 );
@@ -46,13 +46,13 @@ export const Navbar = ({ name, setActiveTheme }: NavbarProps) => {
           >
             {theme.palette.type === "light" && (
               <Brightness4Icon
-                style={{ color: theme.palette.secondary.main }}
+                style={{ color: theme.palette.primary.main }}
               />
             )}
 
             {theme.palette.type === "dark" && (
               <BrightnessHighIcon
-                style={{ color: theme.palette.secondary.main }}
+                style={{ color: theme.palette.primary.main }}
               />
             )}
           </IconButton>
