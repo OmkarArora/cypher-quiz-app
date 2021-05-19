@@ -1,27 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Button from '@material-ui/core/Button';
+import React, { useState } from "react";
+import { lightTheme, darkTheme } from "./themes";
+import { ThemeProvider } from "@material-ui/core";
+import "./App.css";
+import { Navbar } from "./components";
 
 function App() {
+  const [activeTheme, setActiveTheme] = useState("light");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button variant="contained">Default</Button>
-      </header>
-    </div>
+    <ThemeProvider
+      theme={activeTheme === "light" ? lightTheme : darkTheme}
+    >
+      <Navbar name="Cypher" setActiveTheme={setActiveTheme}/>
+
+      <div>Apple</div>
+    </ThemeProvider>
   );
 }
 
