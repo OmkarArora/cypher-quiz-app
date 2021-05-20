@@ -5,6 +5,7 @@ export const quiz1: Quiz = {
   quizName: "Valorant - Easy",
   quizImage:
     "https://imgix.bustle.com/uploads/image/2020/11/6/681edd47-e21f-4a1c-93f7-4be81014560f-valorant_phx_jett.jpg?w=1200&h=630&fit=crop&crop=faces&fm=jpg",
+  quizDescription: "Valorant, made by Riot Games",
   questions: [
     {
       _id: "q1q1",

@@ -11,7 +11,7 @@ export type Action =
   | { type: "INCREMENT_QUESTION_NUMBER" }
   | { type: "SET_QUIZ_DATA"; payload: { data: Quiz[] } }
   | { type: "RESET" }
-  | { type: "SELECT_OPTION"; payload: { questionId: string; quizId: string } };
+  // | { type: "SELECT_OPTION"; payload: { questionId: string; quizId: string } };
 
 export type ContextType = {
   state: QuizState;

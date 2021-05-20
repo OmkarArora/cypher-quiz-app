@@ -36,4 +36,5 @@ export type Quiz = {
 	quizName: string;
 	quizImage?: string;
 	questions: Question[];
+	quizDescription?: string;
 }
