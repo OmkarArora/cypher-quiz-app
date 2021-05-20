@@ -5,11 +5,14 @@ import App from "./App";
 import "@fontsource/roboto";
 
 import { BrowserRouter as Router } from "react-router-dom";
+import { QuizProvider } from "./contexts";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <QuizProvider>
+        <App />
+      </QuizProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")
