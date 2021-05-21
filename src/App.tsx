@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { lightTheme, darkTheme } from "./themes";
 import { ThemeProvider } from "@material-ui/core";
 import "./App.css";
-import { Home, Navbar, QuizHome, QuizPlayArea } from "./components";
+import { Home, Navbar, QuizHome, QuizPlayArea, QuizResults } from "./components";
 import { Routes, Route } from "react-router";
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/quiz/:quizId" element={<QuizHome />} />
           <Route path="/quiz/:quizId/play" element={<QuizPlayArea />} />
+          <Route path="/quiz/:quizId/results" element={<QuizResults />} />
         </Routes>
       </div>
     </ThemeProvider>

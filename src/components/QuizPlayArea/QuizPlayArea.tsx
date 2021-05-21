@@ -1,14 +1,8 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useQuiz } from "../../contexts";
 import { Button, useTheme } from "@material-ui/core";
-import { Option, Question } from "../../types";
-
-type Answers = {
-  question: Question;
-  userAnswer: Option | null;
-  correctAnswer: Option | undefined;
-};
+import { Option, Answers } from "../../types";
 
 export const QuizPlayArea = () => {
   const { quizId } = useParams();
@@ -22,6 +16,8 @@ export const QuizPlayArea = () => {
 
   const currentQuestion = activeQuiz?.questions[activeQuestionNumber];
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (quiz) dispatch({ type: "SET_ACTIVE_QUIZ", payload: { quiz: quiz } });
   }, [dispatch, quiz]);
@@ -31,36 +27,44 @@ export const QuizPlayArea = () => {
       let correctAnswer = currentQuestion.options.find(
         (option) => option.isCorrect
       );
-	  if(correctAnswer === undefined) correctAnswer = currentQuestion.options[0];
-
-      console.log({ correctAnswer });
+      if (correctAnswer === undefined)
+        correctAnswer = currentQuestion.options[0];
       setUserAnswers((prev) => {
-        if (prev)
+        if (prev) {
+          if (correctAnswer !== undefined)
+            return [
+              ...prev,
+              {
+                question: currentQuestion,
+                userAnswer: selectedOption,
+                correctAnswer,
+              },
+            ];
+        }
+        if (correctAnswer !== undefined) {
           return [
-            ...prev,
             {
               question: currentQuestion,
               userAnswer: selectedOption,
               correctAnswer,
             },
           ];
+        }
         return [
           {
             question: currentQuestion,
             userAnswer: selectedOption,
-            correctAnswer,
+            correctAnswer: currentQuestion.options[0],
           },
         ];
       });
-	  if(activeQuiz){
-		if(activeQuestionNumber >= activeQuiz.questions.length-1){
-			console.log("show score and correctness")
-		}
-		else{
-			dispatch({type: "INCREMENT_QUESTION_NUMBER"});
-		}
-	  }
-	  
+      if (activeQuiz) {
+        if (activeQuestionNumber >= activeQuiz.questions.length - 1) {
+          navigate(`/quiz/${quizId}/results`, {state: userAnswers});
+        } else {
+          dispatch({ type: "INCREMENT_QUESTION_NUMBER" });
+        }
+      }
     }
   };
 

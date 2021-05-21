@@ -1,1 +1,1 @@
-export type { Option, Question, Quiz } from "./quiz.types";
+export type { Option, Question, Quiz, Answers } from "./quiz.types";
