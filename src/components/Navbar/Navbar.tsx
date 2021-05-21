@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 import Brightness4Icon from "@material-ui/icons/Brightness4";
 import BrightnessHighIcon from "@material-ui/icons/BrightnessHigh";
+import { Link } from "react-router-dom";
 
 type NavbarProps = {
   setActiveTheme?: React.Dispatch<React.SetStateAction<string>>;
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     toolbar: {
       justifyContent: "space-between",
-	  color: theme.palette.primary.main
+      color: theme.palette.primary.main,
     },
   })
 );
@@ -35,7 +36,11 @@ export const Navbar = ({ name, setActiveTheme }: NavbarProps) => {
   return (
     <AppBar position="sticky" className={classes.root}>
       <Toolbar className={classes.toolbar}>
-        {name && <div>{name}</div>}
+        {name && (
+          <Link to="/">
+            <div>{name}</div>
+          </Link>
+        )}
 
         {setActiveTheme && (
           <IconButton
@@ -45,9 +50,7 @@ export const Navbar = ({ name, setActiveTheme }: NavbarProps) => {
             }
           >
             {theme.palette.type === "light" && (
-              <Brightness4Icon
-                style={{ color: theme.palette.primary.main }}
-              />
+              <Brightness4Icon style={{ color: theme.palette.primary.main }} />
             )}
 
             {theme.palette.type === "dark" && (

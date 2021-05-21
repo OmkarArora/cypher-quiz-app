@@ -11,6 +11,7 @@ export const Home = () => {
       {quizData?.map((quiz) => {
         return (
           <Button
+            key={`quiz${quiz._id}`}
             href={`/quiz/${quiz._id}`}
             id={`quizBtn${quiz._id}`}
             color="primary"

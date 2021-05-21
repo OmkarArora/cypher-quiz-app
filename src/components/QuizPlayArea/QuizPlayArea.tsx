@@ -15,6 +15,7 @@ export const QuizPlayArea = () => {
   const [userAnswers, setUserAnswers] = useState<Answers[] | null>(null);
 
   const currentQuestion = activeQuiz?.questions[activeQuestionNumber];
+  console.log({ userAnswers });
 
   const navigate = useNavigate();
 
@@ -29,6 +30,26 @@ export const QuizPlayArea = () => {
       );
       if (correctAnswer === undefined)
         correctAnswer = currentQuestion.options[0];
+
+      if (activeQuiz) {
+        if (activeQuestionNumber >= activeQuiz.questions.length - 1) {
+          let _userAnswers = userAnswers;
+          if (userAnswers instanceof Array) {
+            _userAnswers = [
+              ...userAnswers,
+              {
+                question: currentQuestion,
+                userAnswer: selectedOption,
+                correctAnswer,
+              },
+            ];
+          }
+          navigate(`/quiz/${quizId}/results`, { state: _userAnswers });
+        } else {
+          dispatch({ type: "INCREMENT_QUESTION_NUMBER" });
+        }
+      }
+
       setUserAnswers((prev) => {
         if (prev) {
           if (correctAnswer !== undefined)
@@ -58,13 +79,6 @@ export const QuizPlayArea = () => {
           },
         ];
       });
-      if (activeQuiz) {
-        if (activeQuestionNumber >= activeQuiz.questions.length - 1) {
-          navigate(`/quiz/${quizId}/results`, {state: userAnswers});
-        } else {
-          dispatch({ type: "INCREMENT_QUESTION_NUMBER" });
-        }
-      }
     }
   };
 

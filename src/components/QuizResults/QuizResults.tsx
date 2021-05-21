@@ -14,10 +14,12 @@ export const QuizResults: React.FC = () => {
       {quizResults &&
         quizResults instanceof Array &&
         quizResults.map((item, index) => (
-          <div>
-			  <div>Question {index + 1}</div>
+          <div key={`Question${index+1}`}>
+            <div>Question {index + 1}</div>
             <div>{item.question.question}</div>
-			<div>Points: {item.userAnswer.isCorrect? item.question.points: 0}</div>
+            <div>
+              Points: {item.userAnswer.isCorrect ? item.question.points : 0}
+            </div>
             <div>
               {item.question.options.map((option: Option) => {
                 if (option._id === item.userAnswer._id && option.isCorrect) {
