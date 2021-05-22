@@ -1,13 +1,14 @@
 import { Button } from "@material-ui/core";
 import { useQuiz } from "../../contexts";
+import "./home.css";
 
 export const Home = () => {
   const { state } = useQuiz();
   const { quizData } = state;
   return (
-    <div>
-      <div>LOGO</div>
-      <div>List of quizes</div>
+    <div className="home">
+      <div className="logo">Cypher</div>
+      <div>Pick a quiz!</div>
       {quizData?.map((quiz) => {
         return (
           <Button
