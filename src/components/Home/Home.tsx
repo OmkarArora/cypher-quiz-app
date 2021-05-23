@@ -6,6 +6,7 @@ import "./home.css";
 export const Home = () => {
   const { state } = useQuiz();
   const { quizData } = state;
+  
   return (
     <div className="home">
       <div className="logo">Cypher</div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { lightTheme, darkTheme } from "./themes";
 import { ThemeProvider } from "@material-ui/core";
 import { Home, Navbar, QuizHome, QuizPlayArea, QuizResults } from "./components";
@@ -7,12 +7,11 @@ import "./app.css";
 
 function App() {
   const [activeTheme, setActiveTheme] = useState("light");
-  // const currentTheme = activeTheme === "light" ? lightTheme : darkTheme;
-  // console.log(currentTheme)
   return (
     <ThemeProvider theme={activeTheme === "light" ? lightTheme : darkTheme}>
       <Navbar name="Cypher" setActiveTheme={setActiveTheme} />
-      {/* <div style={{backgroundColor: currentTheme.palette.secondary.main, color: currentTheme.palette.primary.main}}> */}
+      {/* <Navbar name="Cypher" /> */}
+      
       <div className="main">
         <Routes>
           <Route path="/" element={<Home />} />

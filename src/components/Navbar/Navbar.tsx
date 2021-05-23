@@ -1,16 +1,16 @@
 import React from "react";
 import {
   AppBar,
-  IconButton,
   makeStyles,
   createStyles,
   Toolbar,
   useTheme,
   Theme,
 } from "@material-ui/core";
-import Brightness4Icon from "@material-ui/icons/Brightness4";
-import BrightnessHighIcon from "@material-ui/icons/BrightnessHigh";
+// import Brightness4Icon from "@material-ui/icons/Brightness4";
+// import BrightnessHighIcon from "@material-ui/icons/BrightnessHigh";
 import { Link } from "react-router-dom";
+import "./navbar.css";
 
 type NavbarProps = {
   setActiveTheme?: React.Dispatch<React.SetStateAction<string>>;
@@ -38,11 +38,11 @@ export const Navbar = ({ name, setActiveTheme }: NavbarProps) => {
       <Toolbar className={classes.toolbar}>
         {name && (
           <Link to="/">
-            <div>{name}</div>
+            <div style={{color: theme.palette.primary.main}}>{name}</div>
           </Link>
         )}
 
-        {setActiveTheme && (
+        {/* {setActiveTheme && (
           <IconButton
             edge="start"
             onClick={() =>
@@ -59,7 +59,7 @@ export const Navbar = ({ name, setActiveTheme }: NavbarProps) => {
               />
             )}
           </IconButton>
-        )}
+        )} */}
       </Toolbar>
     </AppBar>
   );
