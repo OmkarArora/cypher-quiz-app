@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router";
 import { useQuiz } from "../../contexts";
 import { Button, useTheme } from "@material-ui/core";
 import { Option, Answers } from "../../types";
+import "./quizPlayArea.css";
 
 export const QuizPlayArea = () => {
   const { quizId } = useParams();
@@ -83,21 +84,15 @@ export const QuizPlayArea = () => {
   };
 
   return (
-    <div>
-      <div>
-        <div>time</div>
-        <div>score</div>
-      </div>
-      <div>{currentQuestion?.question}</div>
+    <div className="quiz-playarea">
+      <div className="question">{currentQuestion?.question}</div>
       {currentQuestion?.questionImage && (
-        <div>
-          <img
-            src={`${currentQuestion.questionImage}`}
-            alt={`${currentQuestion.question}`}
-          />
-        </div>
+        <img
+          src={`${currentQuestion.questionImage}`}
+          alt={`${currentQuestion.question}`}
+        />
       )}
-      <div>
+      <div className="container-options">
         {currentQuestion?.options.map((option) => (
           <Button
             variant="contained"
