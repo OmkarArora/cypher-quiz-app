@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pattaya&display=swap");
 
 body {
   margin: 0;
@@ -7,6 +8,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --logo-home-size: 4rem;
+  --byline-home-size: 3rem;
+
+  --font-family-primary: "Monoton", cursive;
+  --font-family-secondary: "Pattaya", sans-serif;
 }
 
 code {

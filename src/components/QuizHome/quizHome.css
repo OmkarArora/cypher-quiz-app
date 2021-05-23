@@ -1,0 +1,38 @@
+.quiz-home {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.quiz-home .title {
+  font-size: 2rem;
+  font-family: var(--font-family-secondary);
+  text-align: center;
+}
+
+.quiz-home img {
+  max-width: 100%;
+}
+
+.quiz-home .description {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.quiz-home .description .heading {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.quiz-home .btn-start {
+  align-self: center;
+  margin-top: 5rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .quiz-home img {
+    max-width: 500px;
+  }
+}

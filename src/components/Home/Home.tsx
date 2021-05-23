@@ -1,5 +1,6 @@
-import { Button } from "@material-ui/core";
+// import { Button } from "@material-ui/core";
 import { useQuiz } from "../../contexts";
+import { QuizCard } from "../QuizCard/QuizCard";
 import "./home.css";
 
 export const Home = () => {
@@ -8,18 +9,10 @@ export const Home = () => {
   return (
     <div className="home">
       <div className="logo">Cypher</div>
-      <div>Pick a quiz!</div>
+      <div className="byline">quizzes</div>
       {quizData?.map((quiz) => {
         return (
-          <Button
-            key={`quiz${quiz._id}`}
-            href={`/quiz/${quiz._id}`}
-            id={`quizBtn${quiz._id}`}
-            color="primary"
-            variant="contained"
-          >
-            {quiz.quizName}
-          </Button>
+          <QuizCard key={`card${quiz._id}`} id={quiz._id} quizImage={quiz.quizImage} quizName={quiz.quizName} /> 
         );
       })}
     </div>
