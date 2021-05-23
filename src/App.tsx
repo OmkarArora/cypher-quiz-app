@@ -3,7 +3,7 @@ import { lightTheme, darkTheme } from "./themes";
 import { ThemeProvider } from "@material-ui/core";
 import { Home, Navbar, QuizHome, QuizPlayArea, QuizResults } from "./components";
 import { Routes, Route } from "react-router";
-import "./app.css";
+import "./App.css";
 
 function App() {
   const [activeTheme, setActiveTheme] = useState("light");
