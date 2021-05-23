@@ -4,23 +4,45 @@ import { Button, useTheme } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";
 import ClearIcon from "@material-ui/icons/Clear";
 import { Option } from "../../types";
+import "./quizResults.css";
 
 export const QuizResults: React.FC = () => {
   const { state: quizResults } = useLocation();
   const theme = useTheme();
-  console.log({ quizResults });
+  
+  let totalScore = 0;
+  let userScore = 0;
+  if (quizResults && quizResults instanceof Array) {
+    totalScore = quizResults.reduce(
+      (acc, curr) => acc + curr.question.points,
+      0
+    );
+    userScore = quizResults.reduce((acc, curr) => {
+      if (curr.userAnswer.isCorrect) return acc + curr.question.points;
+      return acc;
+    }, 0);
+  }
+
   return (
-    <div>
+    <div className="quiz-results">
+      <div className="results-heading">
+        <div className="heading">Quiz Results</div>
+        <div className="scoring">
+          <span className="userscore">{userScore}</span>/
+          <span className="totalscore">{totalScore}</span>
+        </div>
+      </div>
+
       {quizResults &&
         quizResults instanceof Array &&
         quizResults.map((item, index) => (
-          <div key={`Question${index+1}`}>
-            <div>Question {index + 1}</div>
-            <div>{item.question.question}</div>
-            <div>
+          <div key={`Question${index + 1}`} className="result-card">
+            <div className="question-number">Question {index + 1}</div>
+            <div className="question">{item.question.question}</div>
+            <div className="points">
               Points: {item.userAnswer.isCorrect ? item.question.points : 0}
             </div>
-            <div>
+            <div className="container-options">
               {item.question.options.map((option: Option) => {
                 if (option._id === item.userAnswer._id && option.isCorrect) {
                   return (
