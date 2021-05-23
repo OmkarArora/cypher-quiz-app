@@ -16,7 +16,6 @@ export const QuizPlayArea = () => {
   const [userAnswers, setUserAnswers] = useState<Answers[] | null>(null);
 
   const currentQuestion = activeQuiz?.questions[activeQuestionNumber];
-  console.log({ userAnswers });
 
   const navigate = useNavigate();
 
