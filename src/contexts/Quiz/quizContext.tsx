@@ -24,7 +24,7 @@ type ServerError = { errorMessage: string; errorCode: number };
 const fetchQuizes = async () => {
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_BACKEND_local}/quiz`
+      `${process.env.REACT_APP_BACKEND}/quiz`
     );
     return response.data;
   } catch (error) {
@@ -42,7 +42,7 @@ const fetchQuizes = async () => {
 
 export const QuizProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer(quizReducer, initialState);
-  const [appState, setAppState] = useState("success");
+  const [appState, setAppState] = useState("loading");
 
   useEffect(() => {
     (async function () {

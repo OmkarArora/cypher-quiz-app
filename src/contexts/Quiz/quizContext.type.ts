@@ -14,6 +14,7 @@ export type Action =
   // | { type: "SELECT_OPTION"; payload: { questionId: string; quizId: string } };
 
 export type ContextType = {
+  appState: String;
   state: QuizState;
   dispatch: (action: Action) => void;
 };
