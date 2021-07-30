@@ -6,6 +6,8 @@ export const Home = () => {
   const { state } = useQuiz();
   const { quizData } = state;
 
+  console.log(quizData)
+
   return (
     <div className="home">
       <div className="logo">Cypher</div>
@@ -15,8 +17,8 @@ export const Home = () => {
           <QuizCard
             key={`card${quiz._id}`}
             id={quiz._id}
-            quizImage={quiz.quizImage}
-            quizName={quiz.quizName}
+            quizImage={quiz.image}
+            quizName={quiz.name}
           />
         );
       })}

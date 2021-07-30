@@ -83,9 +83,9 @@ export const QuizPlayArea = () => {
   return (
     <div className="quiz-playarea">
       <div className="question">{currentQuestion?.question}</div>
-      {currentQuestion?.questionImage && (
+      {currentQuestion?.image && (
         <img
-          src={`${currentQuestion.questionImage}`}
+          src={`${currentQuestion.image}`}
           alt={`${currentQuestion.question}`}
         />
       )}

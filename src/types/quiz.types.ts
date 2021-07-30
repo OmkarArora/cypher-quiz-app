@@ -24,7 +24,7 @@ export type Question = {
   question: string;
   points: number;
   negativePoints?: number;
-  questionImage?: string;
+  image?: string;
   options: Option[];
 };
 
@@ -33,8 +33,8 @@ export type Quiz = {
    * Quiz ID
    */
   _id: string;
-  quizName: string;
-  quizImage?: string;
+  name: string;
+  image?: string;
   questions: Question[];
   quizDescription?: string;
 };

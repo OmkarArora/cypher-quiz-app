@@ -13,10 +13,10 @@ export const QuizHome = () => {
 
   return (
     <div className="quiz-home">
-      <div className="title">{quiz?.quizName}</div>
-      {quiz?.quizImage && (
+      <div className="title">{quiz?.name}</div>
+      {quiz?.image && (
         <div>
-          <img src={`${quiz?.quizImage}`} alt={`${quiz.quizName}`} />
+          <img src={`${quiz?.image}`} alt={`${quiz.name}`} />
         </div>
       )}
       {quiz?.quizDescription && (
