@@ -1,17 +1,9 @@
-import { useState } from "react";
-import { lightTheme, darkTheme } from "./themes";
-import { ThemeProvider } from "@material-ui/core";
-import { Home, Navbar, QuizHome, QuizPlayArea, QuizResults } from "./components";
+import { Home, QuizHome, QuizPlayArea, QuizResults } from "./components";
 import { Routes, Route } from "react-router";
 import "./App.css";
 
 function App() {
-  const [activeTheme, setActiveTheme] = useState("light");
   return (
-    <ThemeProvider theme={activeTheme === "light" ? lightTheme : darkTheme}>
-      <Navbar name="Cypher" setActiveTheme={setActiveTheme} />
-      {/* <Navbar name="Cypher" /> */}
-      
       <div className="main">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -20,7 +12,6 @@ function App() {
           <Route path="/quiz/:quizId/results" element={<QuizResults />} />
         </Routes>
       </div>
-    </ThemeProvider>
   );
 }
 

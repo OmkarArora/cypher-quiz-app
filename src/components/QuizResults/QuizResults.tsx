@@ -1,14 +1,10 @@
 import React from "react";
 import { useLocation } from "react-router";
-import { Button, useTheme } from "@material-ui/core";
-import CheckIcon from "@material-ui/icons/Check";
-import ClearIcon from "@material-ui/icons/Clear";
 import { Option } from "../../types";
 import "./quizResults.css";
 
 export const QuizResults: React.FC = () => {
   const { state: quizResults } = useLocation();
-  const theme = useTheme();
   
   let totalScore = 0;
   let userScore = 0;
@@ -46,60 +42,54 @@ export const QuizResults: React.FC = () => {
               {item.question.options.map((option: Option) => {
                 if (option._id === item.userAnswer._id && option.isCorrect) {
                   return (
-                    <Button
-                      startIcon={<CheckIcon />}
-                      variant="contained"
+                    <button
                       style={{
                         color: "white",
-                        backgroundColor: theme.palette.success.main,
+                        backgroundColor: "green",
                       }}
                       key={`BtnQuestion${item.question.question._id}${option._id}`}
                     >
                       {option.text}
-                    </Button>
+                    </button>
                   );
                 } else if (
                   option._id === item.userAnswer._id &&
                   !option.isCorrect
                 ) {
                   return (
-                    <Button
-                      startIcon={<ClearIcon />}
-                      variant="contained"
+                    <button
                       style={{
                         color: "white",
-                        backgroundColor: theme.palette.error.main,
+                        backgroundColor: "red",
                       }}
                       key={`BtnQuestion${item.question.question._id}${option._id}`}
                     >
                       {option.text}
-                    </Button>
+                    </button>
                   );
                 } else if (option.isCorrect) {
                   return (
-                    <Button
-                      variant="contained"
+                    <button
                       style={{
                         color: "white",
-                        backgroundColor: theme.palette.success.main,
+                        backgroundColor: "green",
                       }}
                       key={`BtnQuestion${item.question.question._id}${option._id}`}
                     >
                       {option.text}
-                    </Button>
+                    </button>
                   );
                 }
                 return (
-                  <Button
-                    variant="contained"
+                  <button
                     style={{
                       color: "white",
-                      backgroundColor: theme.palette.primary.main,
+                      backgroundColor: "blue",
                     }}
                     key={`BtnQuestion${item.question.question._id}${option._id}`}
                   >
                     {option.text}
-                  </Button>
+                  </button>
                 );
               })}
             </div>

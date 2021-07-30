@@ -1,10 +1,12 @@
 import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { useQuiz } from "../../contexts";
-import { Button } from "@material-ui/core";
 import "./quizHome.css";
 
 export const QuizHome = () => {
   const { quizId } = useParams();
+  const navigate = useNavigate();
+
   const { state } = useQuiz();
   const { quizData } = state;
   const quiz = quizData?.find((item) => item._id === quizId);
@@ -24,9 +26,9 @@ export const QuizHome = () => {
         </div>
       )}
 
-      <Button href={`/quiz/${quizId}/play`} variant="contained" color="primary" size="large" className="btn-start">
+      <button className="btn-start" onClick={() => navigate(`/quiz/${quizId}/play`)}>
         Start
-      </Button>
+      </button>
     </div>
   );
 };

@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import "@fontsource/roboto";
 
 import { BrowserRouter as Router } from "react-router-dom";
 import { QuizProvider } from "./contexts";

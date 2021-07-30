@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useQuiz } from "../../contexts";
-import { Button, useTheme } from "@material-ui/core";
 import { Option, Answers } from "../../types";
 import "./quizPlayArea.css";
 
@@ -10,7 +9,6 @@ export const QuizPlayArea = () => {
   const { state, dispatch } = useQuiz();
   const { quizData, activeQuiz, activeQuestionNumber } = state;
   const quiz = quizData?.find((item) => item._id === quizId);
-  const theme = useTheme();
 
   const [selectedOption, setSelectedOption] = useState<Option | null>(null);
   const [userAnswers, setUserAnswers] = useState<Answers[] | null>(null);
@@ -93,26 +91,25 @@ export const QuizPlayArea = () => {
       )}
       <div className="container-options">
         {currentQuestion?.options.map((option) => (
-          <Button
-            variant="contained"
+          <button
             style={{
               color: "white",
               backgroundColor:
                 selectedOption && selectedOption?._id === option._id
-                  ? theme.palette.success.main
-                  : theme.palette.primary.main,
+                  ? "green"
+                  : "blue",
             }}
             key={`BtnQuestion${currentQuestion?._id}${option._id}`}
             onClick={() => setSelectedOption(option)}
           >
             {option.text}
-          </Button>
+          </button>
         ))}
       </div>
       <div>
-        <Button variant="contained" color="secondary" onClick={onClickNext}>
+        <button onClick={onClickNext}>
           Next
-        </Button>
+        </button>
       </div>
     </div>
   );
