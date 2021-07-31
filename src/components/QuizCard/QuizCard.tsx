@@ -1,5 +1,5 @@
 import { FC, ReactElement, ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./quizCard.css";
 
 type CardProps = {
@@ -7,20 +7,29 @@ type CardProps = {
   quizName: string;
   quizImage?: string;
   children?: ReactNode;
+  numOfQuestions: number;
 };
 
 export const QuizCard: FC<CardProps> = ({
   id,
   quizName,
   quizImage,
+  numOfQuestions,
 }: CardProps): ReactElement => {
+  const navigate = useNavigate();
+
   return (
     <div className="card-quiz">
-      <Link to={`/quiz/${id}`}>
-        {quizImage && <img src={`${quizImage}`} alt={`${quizName}`} />}
-
-        <div className="title">{quizName}</div>
-      </Link>
+      <img src={quizImage} alt={quizName} />
+      <div className="quiz-details">
+        <div>
+          <div>{quizName}</div>
+          <div>{numOfQuestions} questions</div>
+        </div>
+        <button className="btn-primary" onClick={() => navigate(`/quiz/${id}/play`)}>
+          START
+        </button>
+      </div>
     </div>
   );
 };

@@ -20,9 +20,24 @@ body {
   --font-family-secondary: "Pattaya", sans-serif;
 
   --page-top-margin: 1rem;
+
+  --color-bg: #082032;
+  --color-primary: #ff4c29;
+  --color-secondary: #2c394b;
+  --color-text: #fff;
+  --color-border: #334756;
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.btn-primary {
+  border-radius: 1rem;
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  padding: 0.5rem 1.2rem;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
 }

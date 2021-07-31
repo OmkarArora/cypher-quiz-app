@@ -82,34 +82,36 @@ export const QuizPlayArea = () => {
 
   return (
     <div className="quiz-playarea">
-      <div className="question">{currentQuestion?.question}</div>
-      {currentQuestion?.image && (
-        <img
-          src={`${currentQuestion.image}`}
-          alt={`${currentQuestion.question}`}
-        />
-      )}
-      <div className="container-options">
-        {currentQuestion?.options.map((option) => (
-          <button
-            style={{
-              color: "white",
-              backgroundColor:
-                selectedOption && selectedOption?._id === option._id
-                  ? "green"
-                  : "blue",
-            }}
-            key={`BtnQuestion${currentQuestion?._id}${option._id}`}
-            onClick={() => setSelectedOption(option)}
-          >
-            {option.text}
-          </button>
-        ))}
-      </div>
-      <div>
-        <button onClick={onClickNext}>
-          Next
-        </button>
+      <div className="quiz-playCard">
+        <div className="quiz-name">{quiz?.name}</div>
+        {currentQuestion?.image && (
+          <img
+            src={`${currentQuestion.image}`}
+            alt={`${currentQuestion.question}`}
+          />
+        )}
+        <div className="question">{currentQuestion?.question}</div>
+
+        <div className="container-options">
+          {currentQuestion?.options.map((option) => (
+            <button
+              style={{
+                color: "white",
+                backgroundColor:
+                  selectedOption && selectedOption?._id === option._id
+                    ? "green"
+                    : "blue",
+              }}
+              key={`BtnQuestion${currentQuestion?._id}${option._id}`}
+              onClick={() => setSelectedOption(option)}
+            >
+              {option.text}
+            </button>
+          ))}
+        </div>
+        <div>
+          <button onClick={onClickNext}>Next</button>
+        </div>
       </div>
     </div>
   );
