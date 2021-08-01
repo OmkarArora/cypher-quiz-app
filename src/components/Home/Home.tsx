@@ -1,11 +1,14 @@
+import { useEffect } from "react";
 import { useQuiz } from "../../contexts";
 import { Loader } from "../Loader/Loader";
 import { QuizCard } from "../QuizCard/QuizCard";
 import "./home.css";
 
 export const Home = () => {
-  const { state, appState } = useQuiz();
+  const { state, appState, dispatch } = useQuiz();
   const { quizData } = state;
+
+  useEffect(() => dispatch({ type: "RESET" }), [dispatch]);
 
   return (
     <div className="home">

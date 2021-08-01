@@ -26,7 +26,7 @@ export const QuizCard: FC<CardProps> = ({
           <div>{quizName}</div>
           <div>{numOfQuestions} questions</div>
         </div>
-        <button className="btn-primary" onClick={() => navigate(`/quiz/${id}/play`)}>
+        <button className="btn btn-primary" onClick={() => navigate(`/quiz/${id}/play`)}>
           START
         </button>
       </div>

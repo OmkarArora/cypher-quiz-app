@@ -42,7 +42,7 @@ export const QuizPlayArea = () => {
               },
             ];
           }
-          navigate(`/quiz/${quizId}/results`, { state: _userAnswers });
+          navigate(`/results`, { state: _userAnswers, replace: true });
         } else {
           dispatch({ type: "INCREMENT_QUESTION_NUMBER" });
         }
@@ -90,18 +90,18 @@ export const QuizPlayArea = () => {
             alt={`${currentQuestion.question}`}
           />
         )}
+        <div>
+          <span className="label">Question :</span>
+          <span className="label-value">
+            {activeQuestionNumber + 1}/{quiz?.questions.length}
+          </span>
+        </div>
         <div className="question">{currentQuestion?.question}</div>
 
         <div className="container-options">
           {currentQuestion?.options.map((option) => (
             <button
-              style={{
-                color: "white",
-                backgroundColor:
-                  selectedOption && selectedOption?._id === option._id
-                    ? "green"
-                    : "blue",
-              }}
+              className={ selectedOption && selectedOption?._id === option._id?"btn btn-secondary selected-option": "btn btn-secondary"}
               key={`BtnQuestion${currentQuestion?._id}${option._id}`}
               onClick={() => setSelectedOption(option)}
             >
@@ -109,9 +109,7 @@ export const QuizPlayArea = () => {
             </button>
           ))}
         </div>
-        <div>
-          <button onClick={onClickNext}>Next</button>
-        </div>
+          <button onClick={onClickNext} className="btn btn-tertiary btn-next">Next</button>
       </div>
     </div>
   );

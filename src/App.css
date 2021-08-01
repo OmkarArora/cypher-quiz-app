@@ -1,5 +1,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  overflow-x: hidden;
+  padding: 1rem 0;
+  height: 95%;
 }
