@@ -77,11 +77,15 @@ export const QuizPlayArea = () => {
           },
         ];
       });
+      setSelectedOption(null);
     }
   };
 
   return (
     <div className="quiz-playarea">
+       <button className="btn btn-secondary btn-home" onClick={() => navigate("/")}>
+        ◀ <span className="btn-home-text">Home</span>
+      </button>
       <div className="quiz-playCard">
         <div className="quiz-name">{quiz?.name}</div>
         {currentQuestion?.image && (
@@ -109,7 +113,7 @@ export const QuizPlayArea = () => {
             </button>
           ))}
         </div>
-          <button onClick={onClickNext} className="btn btn-tertiary btn-next">Next</button>
+          <button onClick={onClickNext} className="btn btn-tertiary btn-next" disabled={selectedOption===null}>Next</button>
       </div>
     </div>
   );

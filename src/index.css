@@ -41,6 +41,10 @@ body {
   color: var(--color-text);
 }
 
+.btn:disabled {
+  opacity: 0.5;
+}
+
 .btn-primary {
   background-color: var(--color-primary);
 }

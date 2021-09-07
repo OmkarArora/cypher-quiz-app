@@ -23,7 +23,6 @@ export const QuizResults: React.FC = () => {
 
   return (
     <div className="quiz-results">
-
       <button className="btn btn-secondary btn-home" onClick={() => navigate("/")}>
         ◀ <span className="btn-home-text">Home</span>
       </button>
