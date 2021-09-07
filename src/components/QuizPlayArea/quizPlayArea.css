@@ -28,6 +28,7 @@
 .quiz-playCard img {
   max-width: 100%;
   margin: 1rem 0;
+  align-self: center;
 }
 
 .container-options {
