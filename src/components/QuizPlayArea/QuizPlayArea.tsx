@@ -88,12 +88,14 @@ export const QuizPlayArea = () => {
       </button>
       <div className="quiz-playCard">
         <div className="quiz-name">{quiz?.name}</div>
+        <div  className="quiz-playDetails">
         {currentQuestion?.image && (
           <img
             src={`${currentQuestion.image}`}
             alt={`${currentQuestion.question}`}
           />
         )}
+        <div className="quiz-questionDetails">
         <div>
           <span className="label">Question :</span>
           <span className="label-value">
@@ -114,6 +116,9 @@ export const QuizPlayArea = () => {
           ))}
         </div>
           <button onClick={onClickNext} className="btn btn-tertiary btn-next" disabled={selectedOption===null}>Next</button>
+
+          </div>
+      </div>
       </div>
     </div>
   );

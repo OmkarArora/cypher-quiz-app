@@ -18,16 +18,12 @@
 }
 
 .card-quiz img {
+  width: 500px;
   max-width: 100%;
+  height: auto;
 }
 
 .quiz-details {
   display: flex;
   justify-content: space-between;
-}
-
-@media only screen and (min-width: 768px) {
-  .card-quiz img {
-    max-width: 500px;
-  }
 }
